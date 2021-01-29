@@ -4,5 +4,5 @@ import com.wenance.signatureprocessor.core.model.Task
 
 interface TaskRepository {
 
-    fun createTask(task: Task): Unit
+    fun createTask(task: Task): Task
 }
