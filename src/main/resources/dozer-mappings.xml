@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping http://dozermapper.github.io/schema/bean-mapping.xsd">
+    <configuration>
+<!--    	<custom-converters>
+    		<converter type="com.wenance.signatureservice.utils.OpportunityToLoanContractConverter">
+    			<class-a>com.wenance.signatureservice.client.dto.Opportunity</class-a>
+    			<class-b>com.wenance.signatureservice.service.dto.contractMaker.DetailContractInfo</class-b>
+    		</converter>
+    	</custom-converters>-->
+    </configuration>
+    
+<!--     <mapping> -->
+<!--         <class-a>com.wenance.signatureservice.client.dto.Opportunity</class-a> -->
+<!--         <class-b>com.wenance.signatureservice.service.dto.contractMaker.LoanContract</class-b> -->
+<!--         <field> -->
+<!--             <a>cbu.cbu</a> -->
+<!--             <b>cbu</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.provincia.name</a> -->
+<!--             <b>provincia</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.localidad.name</a> -->
+<!--             <b>localidad</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.nombre</a> -->
+<!--             <b>nombre</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.apellido</a> -->
+<!--             <b>apellido</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.dni</a> -->
+<!--             <b>dni</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.calle</a> -->
+<!--             <b>calle</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.numero</a> -->
+<!--             <b>numero</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.piso</a> -->
+<!--             <b>piso</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.departamento</a> -->
+<!--             <b>departamento</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.codigoPostal</a> -->
+<!--             <b>codigoPostal</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>account.name</a> -->
+<!--             <b>accountName</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>producto.tna</a> -->
+<!--             <b>tna</b> -->
+<!--         </field> -->
+<!--     </mapping> -->
+<!--     <mapping> -->
+<!--       	<class-a>com.wenance.signatureservice.service.dto.ContractDTO</class-a> -->
+<!--   		<class-b>com.wenance.signatureservice.dao.entity.Contract</class-b>     -->
+<!-- 		  <field custom-converter= -->
+<!-- 		    "com.wenance.signatureservice.utils.LoanContractToStringConverter"> -->
+<!-- 		    <a>contractInfo</a> -->
+<!-- 		    <b>contractInfo</b> -->
+<!-- 		  </field> -->
+<!--     </mapping> -->
+</mappings>

@@ -4,7 +4,7 @@ import javax.persistence.*
 
 @Entity
 @DiscriminatorValue(value="HASH")
-open class HashStep : Step() {
+open class HashStepEntity : StepEntity() {
 
     @Column(name = "url_selfie")
     open var urlSelfie: String? = null

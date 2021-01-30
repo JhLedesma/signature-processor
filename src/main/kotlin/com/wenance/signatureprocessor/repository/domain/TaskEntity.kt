@@ -8,7 +8,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "task")
-open class Task {
+open class TaskEntity {
 
     @Id
     @GeneratedValue
@@ -40,5 +40,5 @@ open class Task {
     open var updateDate: LocalDateTime? = null
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "task")
-    open var steps: Set<Step> = emptySet()
+    open var stepEntities: Set<StepEntity> = emptySet()
 }

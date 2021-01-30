@@ -4,7 +4,7 @@ import javax.persistence.*
 
 @Entity
 @DiscriminatorValue(value="DNI")
-open class DniStep : Step() {
+open class DniStepEntity : StepEntity() {
 
     @Column(name = "url_dni")
     open var urlDni: String? = null

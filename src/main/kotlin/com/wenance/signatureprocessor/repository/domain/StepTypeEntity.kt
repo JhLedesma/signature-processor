@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "step_type")
-class StepType {
+class StepTypeEntity {
     @Id
     @GeneratedValue
     @Column(name = "id")

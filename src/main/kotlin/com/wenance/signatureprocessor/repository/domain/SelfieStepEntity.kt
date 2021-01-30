@@ -6,7 +6,7 @@ import javax.persistence.Entity
 
 @Entity
 @DiscriminatorValue(value="SELFIE")
-open class SelfieStep : Step() {
+open class SelfieStepEntity : StepEntity() {
 
     @Column(name = "url_selfie")
     open var urlSelfie: String? = null

@@ -1,14 +1,13 @@
 package com.wenance.signatureprocessor.repository.domain
 
 import com.wenance.signatureprocessor.core.model.StepStatus
-import com.wenance.signatureprocessor.core.model.TaskStatus
 import javax.persistence.*
 
 @Entity
 @Table(name = "step")
 @DiscriminatorColumn(name="type")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-abstract class Step {
+abstract class StepEntity {
 
     @Id
     @GeneratedValue
@@ -21,5 +20,5 @@ abstract class Step {
 
     @ManyToOne
     @JoinColumn(name = "tarea_id")
-    open var task: Task? = null
+    open var taskEntity: TaskEntity? = null
 }
