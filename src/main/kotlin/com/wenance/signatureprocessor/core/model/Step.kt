@@ -1,12 +1,12 @@
 package com.wenance.signatureprocessor.core.model
 
-sealed class Step(open val status: StepStatus, val typeName: StepTypeName, val id: String? = null)
+sealed class Step(open val status: StepStatus, val typeName: StepTypeName, open val id: Long? = null)
 
-data class SelfieStep(override val status: StepStatus, val urlSelfie: String, val urlDni: String) : Step(status, StepTypeName.FOTO)
+data class SelfieStep(override val status: StepStatus, val urlSelfie: String, val urlDni: String, override val id: Long? = null) : Step(status, StepTypeName.FOTO, id)
 
-data class HashStep(override val status: StepStatus, val urlSelfie: String, val hashValue: String) : Step(status, StepTypeName.HASH)
+data class HashStep(override val status: StepStatus, val urlSelfie: String, val hashValue: String, override val id: Long? = null) : Step(status, StepTypeName.HASH, id)
 
-data class DniStep(override val status: StepStatus, val urlDni: String, val urlDniBack: String) : Step(status, StepTypeName.DNI)
+data class DniStep(override val status: StepStatus, val urlDni: String, val urlDniBack: String, override val id: Long? = null) : Step(status, StepTypeName.DNI, id)
 
 enum class StepTypeName {
     HASH,

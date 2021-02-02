@@ -8,7 +8,10 @@ import org.springframework.data.relational.core.mapping.Table
 data class StepEntity (
 
     @Column("step_status")
-    var status: String,
+    val status: String,
+
+    @Column("type")
+    val type: String,
 
     @Column("task_id")
     val taskId: String,
