@@ -1,24 +1,31 @@
 package com.wenance.signatureprocessor.repository.domain
 
-import com.wenance.signatureprocessor.core.model.StepStatus
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-@Table(name = "step")
-@DiscriminatorColumn(name="type")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-abstract class StepEntity {
+@Table("step")
+data class StepEntity (
+
+    @Column("step_status")
+    var status: String,
+
+    @Column("task_id")
+    val taskId: String,
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    open var id: Long? = null
+    @Column("id")
+    val id: Long? = null,
 
-    @Column(name = "step_status")
-    @Enumerated(EnumType.STRING)
-    open var status: StepStatus? = null
+    @Column("url_selfie")
+    val urlSelfie: String? = null,
 
-    @ManyToOne
-    @JoinColumn(name = "tarea_id")
-    open var taskEntity: TaskEntity? = null
-}
+    @Column("url_dni")
+    val urlDni: String? = null,
+
+    @Column("url_dni_back")
+    val urlDniBack: String? = null,
+
+    @Column("hash_value")
+    val hashValue: String? = null
+)

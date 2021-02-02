@@ -1,22 +1,23 @@
 package com.wenance.signatureprocessor.repository.domain
 
 import com.wenance.signatureprocessor.core.model.StepTypeName
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-@Table(name = "step_type")
-class StepTypeEntity {
+@Table("step_type")
+data class StepTypeEntity (
+
+    @Column("product_entity")
+    val productEntity: String,
+
+    @Column("product_type")
+    val productType: String,
+
+    @Column("type_name")
+    val stepTypeName: StepTypeName,
+
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    open var id: Long? = null
-
-    @Column(name = "product_entity")
-    open var productEntity: String? = null
-
-    @Column(name = "product_type")
-    open var productType: String? = null
-
-    @Column(name = "type_name")
-    open var stepTypeName: StepTypeName? = null
-}
+    @Column("id")
+    val id: Long? = null
+)

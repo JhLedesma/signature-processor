@@ -2,13 +2,14 @@ package com.wenance.signatureprocessor.repository.adapter
 
 import com.wenance.signatureprocessor.core.model.Task
 import com.wenance.signatureprocessor.repository.TaskRepository
+import com.wenance.signatureprocessor.repository.dao.StepDao
 import com.wenance.signatureprocessor.repository.dao.TaskDao
 import com.wenance.signatureprocessor.repository.domain.TaskEntity
 import com.wenance.signatureprocessor.utils.ModelMapper
 import kotlinx.coroutines.reactive.awaitFirst
 import kotlinx.coroutines.reactive.awaitFirstOrNull
 
-class TaskRepositoryAdapter(val taskDao: TaskDao) : TaskRepository {
+class TaskRepositoryAdapter(val taskDao: TaskDao, val stepDao: StepDao) : TaskRepository {
 
     override suspend fun saveTask(task: Task): Task {
         return ModelMapper.convert(task, TaskEntity::class.java)

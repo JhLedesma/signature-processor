@@ -1,44 +1,37 @@
 package com.wenance.signatureprocessor.repository.domain
 
 import com.wenance.signatureprocessor.core.model.TaskStatus
-import org.hibernate.annotations.CreationTimestamp
-import org.hibernate.annotations.UpdateTimestamp
+import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.Transient
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
-import javax.persistence.*
 
-@Entity
-@Table(name = "task")
-open class TaskEntity {
+@Table("task")
+data class TaskEntity (
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    open var id: Long? = null
+    @Column("hash_id")
+    val hashId: String,
 
-    @Column(name = "hash_id")
-    open var hashId: String? = null
+    @Column("dni")
+    val dni: String,
 
-    @Column(name = "dni")
-    open var dni: String? = null
+    @Column("task_status")
+    var status: TaskStatus,
 
-    @Column(name = "task_status")
-    @Enumerated(EnumType.STRING)
-    open var status: TaskStatus? = null
+    @Column("product_entity")
+    val productEntity: String,
 
-    @Column(name = "product_entity")
-    open var productEntity: String? = null
+    @Column("product_type")
+    val productType: String,
 
-    @Column(name = "product_type")
-    open var productType: String? = null
+    @Transient
+    val stepEntities: Set<StepEntity>,
 
-    @Column(name = "creation_date")
-    @CreationTimestamp
-    open var creationDate: LocalDateTime? = null
+    @Column("creation_date")
+    var creationDate: LocalDateTime? = null,
 
-    @Column(name = "update_date")
-    @UpdateTimestamp
-    open var updateDate: LocalDateTime? = null
-
-    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "task")
-    open var stepEntities: Set<StepEntity> = emptySet()
-}
+    @Column("update_date")
+    var updateDate: LocalDateTime? = null
+)

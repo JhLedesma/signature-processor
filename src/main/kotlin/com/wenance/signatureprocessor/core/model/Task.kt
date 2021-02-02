@@ -3,10 +3,14 @@ package com.wenance.signatureprocessor.core.model
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 
-data class Task(val hashId: String, val dni: String, val productEntity: String, val productType: String, val status: TaskStatus, val steps: Set<Step>) {
-    lateinit var creationDate: LocalDateTime
-    lateinit var updateDate: LocalDateTime
-}
+data class Task(val hashId: String,
+                val dni: String,
+                val productEntity: String,
+                val productType: String,
+                val status: TaskStatus,
+                val steps: Set<Step>,
+                val creationDate: LocalDateTime?,
+                val updateDate: LocalDateTime?)
 
 enum class TaskStatus(val value: String) {
     PENDING("Pendiente"),

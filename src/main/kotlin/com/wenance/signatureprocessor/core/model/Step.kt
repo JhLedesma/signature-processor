@@ -1,8 +1,6 @@
 package com.wenance.signatureprocessor.core.model
 
-sealed class Step(open val status: StepStatus, val typeName: StepTypeName) {
-    lateinit var id: String
-}
+sealed class Step(open val status: StepStatus, val typeName: StepTypeName, val id: String? = null)
 
 data class SelfieStep(override val status: StepStatus, val urlSelfie: String, val urlDni: String) : Step(status, StepTypeName.FOTO)
 
