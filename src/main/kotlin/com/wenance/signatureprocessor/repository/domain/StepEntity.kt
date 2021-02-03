@@ -1,5 +1,8 @@
 package com.wenance.signatureprocessor.repository.domain
 
+import com.wenance.signatureprocessor.core.model.Step
+import com.wenance.signatureprocessor.core.model.StepStatus
+import com.wenance.signatureprocessor.core.model.StepTypeName
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
@@ -12,6 +15,9 @@ data class StepEntity (
 
     @Column("task_id")
     val taskId: String,
+
+    @Column("type")
+    val type: String,
 
     @Id
     @Column("id")
@@ -28,4 +34,6 @@ data class StepEntity (
 
     @Column("hash_value")
     val hashValue: String? = null
-)
+) {
+    fun toStep(): Step = Step(StepStatus.valueOf(status), StepTypeName.valueOf(type), id, urlSelfie, urlDni, urlDniBack, hashValue)
+}

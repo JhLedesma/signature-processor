@@ -1,26 +1,22 @@
 package com.wenance.signatureprocessor.core.model
 
-sealed class Step(open val status: StepStatus, val typeName: StepTypeName, val id: String? = null)
+import com.wenance.signatureprocessor.repository.domain.StepEntity
 
-data class SelfieStep(override val status: StepStatus, val urlSelfie: String, val urlDni: String) : Step(status, StepTypeName.FOTO)
-
-data class HashStep(override val status: StepStatus, val urlSelfie: String, val hashValue: String) : Step(status, StepTypeName.HASH)
-
-data class DniStep(override val status: StepStatus, val urlDni: String, val urlDniBack: String) : Step(status, StepTypeName.DNI)
-
-enum class StepTypeName {
-    HASH,
-    FOTO,
-    DNI;
+data class Step(
+    val status: StepStatus,
+    val typeName: StepTypeName,
+    val id: Long? = null,
+    val urlSelfie: String? = null,
+    val urlDni: String? = null,
+    val urlDniBack: String? = null,
+    val hashValue: String? = null
+) {
+    fun toStepEntity(taskId: String): StepEntity = StepEntity(status.name, taskId, typeName.name, id, urlSelfie, urlDni, urlDniBack, hashValue)
 }
 
-enum class StepStatus {
-    PENDING,
-    CREATED,
-    PROCESSING,
-    OPERATOR,
-    AUDIT,
-    COMPLETED;
-}
+
+enum class StepTypeName { HASH, FOTO, DNI; }
+
+enum class StepStatus { PENDING, CREATED, PROCESSING, OPERATOR, AUDIT, COMPLETED; }
 
 data class StepType(val productEntity: String, val productType: String, val stepTypeName: StepTypeName)
