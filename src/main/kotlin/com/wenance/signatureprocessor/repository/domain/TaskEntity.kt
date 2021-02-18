@@ -1,5 +1,6 @@
 package com.wenance.signatureprocessor.repository.domain
 
+import com.wenance.signatureprocessor.core.model.Step
 import com.wenance.signatureprocessor.core.model.Task
 import com.wenance.signatureprocessor.core.model.TaskStatus
 import org.springframework.data.annotation.Id
@@ -36,13 +37,14 @@ data class TaskEntity (
     @Column("update_date")
     var updateDate: LocalDateTime? = null
 ) {
-    fun toTask(): Task =
+
+    fun toTask(steps: Set<Step>): Task =
         Task(hashId,
             dni,
             productEntity,
             productType,
             TaskStatus.valueOf(status),
-            stepEntities.map { it.toStep() }.toSet(),
+            steps,
             creationDate,
             updateDate
         )
