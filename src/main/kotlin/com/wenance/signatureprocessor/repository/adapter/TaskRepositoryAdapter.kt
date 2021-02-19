@@ -5,6 +5,8 @@ import com.wenance.signatureprocessor.repository.StepRepository
 import com.wenance.signatureprocessor.repository.TaskRepository
 import com.wenance.signatureprocessor.repository.dao.TaskDao
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.toSet
 import kotlinx.coroutines.reactive.awaitFirst
 import kotlinx.coroutines.reactive.awaitFirstOrNull
