@@ -11,6 +11,6 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 @Configuration
 @ComponentScan(basePackages = ["com.wenance.signatureprocessor"])
 @EnableAutoConfiguration
-@EnableR2dbcRepositories
+@EnableR2dbcRepositories(basePackages = ["com.wenance.signatureprocessor.repository"])
 class SpringConfig(@Autowired val stepDao: StepDao, @Autowired val taskDao: TaskDao) {
 }
